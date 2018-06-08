@@ -1,16 +1,7 @@
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
 #include "Game\Public\GameObjectHandle.h"
-#include "Game\Public\COGPhysics.h"
 #include "Engine\Public\Engine.h"
-#include "Game\Public\COGLineRenderer.h"
-#include "Game\Public\COGCollider.h"
-#include "Game\Public\COGBattery.h"
-#include "Game\Public\COGMissile.h"
-#include "Game\Public\COGShape.h"
-#include "Game\Public\COGGameManager.h"
-#include "Game\Public\COGLifeSpan.h"
-#include "Game\Public\COGExplosion.h"
 
 World::World(Engine* pEngine)
 {
@@ -33,50 +24,7 @@ void World::Destroy()
 
 void World::Update()
 {
-	for (COGPhysics* physics : COGPhysics::mPhysicsComponents)
-	{
-		physics->Update();
-	}
-
-	if (COGGameManager::mGameManagerComponent != nullptr)
-	{
-		mGameManager->Update();
-	}
-
-	for (COGLineRenderer* lines : COGLineRenderer::mLRComponents)
-	{
-		lines->Draw();
-	}
-
-	for (COGShape* shape : COGShape::mShapeComponents)
-	{
-		shape->Render();
-	}
-
-	for (COGMissile* missile : COGMissile::mMisComponents)
-	{
-		missile->Update();
-	}
-
-	for (COGBattery* bat : COGBattery::mBatComponents)
-	{
-		bat->ListenForCharge();
-	}
-
-	for (COGLifeSpan* lF : COGLifeSpan::mLSComponents)
-	{
-		lF->Update();
-	}
-
-	for (COGExplosion* exp : COGExplosion::mExpComponents)
-	{
-		exp->Update();
-	}
-
-	for (COGCollider* collider : COGCollider::mColliderComponents)
-	{
-		collider->CheckCollision();
-	}
+	
 }
 
 void World::Add(GameObjectHandle pHandle)
@@ -98,6 +46,7 @@ void World::FreeMemory()
 			delete mHandlesToDelete[i].Get();
 		}
 	}
+	mHandlesToDelete.clear();
 }
 
 std::vector<GameObjectHandle> World::GetHandles()

@@ -2,7 +2,6 @@
 #include "Engine\Public\Engine.h"
 #include "Game\Public\InputManager.h"
 #include "Game\Public\World.h"
-#include "Game\Public\GameObjectFactory.h"
 
 MissileCommandGame::MissileCommandGame()
 	: mWorld(nullptr)
@@ -12,7 +11,6 @@ MissileCommandGame::MissileCommandGame()
 void MissileCommandGame::Init(Engine* pEngine)
 {
 	mWorld = new World(pEngine);
-	GameObjectFactory::Instance()->CreateGameManager(mWorld);
 }
 
 void MissileCommandGame::Run()

@@ -32,4 +32,6 @@ private:
 	int mWindowWidth;
 	int mWindowHeight;
 
+
+
 };

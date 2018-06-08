@@ -66,22 +66,13 @@
     <ClCompile Include="Game\Private\MissileCommandGame.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\COGPhysics.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Private\COGTransform.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
     <ClCompile Include="Game\Private\Component.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\Crossfade.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Private\GameObject.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\GameObjectFactory.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
     <ClCompile Include="Game\Private\GameObjectHandle.cpp">
@@ -102,37 +93,10 @@
     <ClCompile Include="Game\Private\World.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\COGLineRenderer.cpp">
+    <ClCompile Include="Game\Private\COGFSM.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Private\COGBattery.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGMissile.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGGameManager.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGBoxShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGCircleShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGCollider.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGTargetShape.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGExplosion.cpp">
-      <Filter>Source Files\Game\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Private\COGLifeSpan.cpp">
+    <ClCompile Include="Game\Private\FSMState.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,9 +128,6 @@
     <ClInclude Include="Game\Public\MissileCommandGame.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Public\COGPhysics.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Public\COGTransform.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
@@ -177,9 +138,6 @@
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\GameObject.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\GameObjectFactory.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\GameObjectHandle.h">
@@ -209,37 +167,10 @@
     <ClInclude Include="Game\Public\Crossfade.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Public\COGLineRenderer.h">
+    <ClInclude Include="Game\Public\COGFSM.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Public\COGBattery.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGMissile.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGGameManager.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGBoxShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGCircleShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGCollider.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGTargetShape.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGExplosion.h">
-      <Filter>Source Files\Game\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Public\COGLifeSpan.h">
+    <ClInclude Include="Game\Public\FSMState.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
   </ItemGroup>

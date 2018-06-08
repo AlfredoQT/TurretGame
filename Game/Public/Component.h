@@ -4,7 +4,6 @@
 #include <algorithm>
 
 class GameObject;
-class COGCollider;
 
 // our base component class
 class Component
@@ -16,9 +15,7 @@ public:
 	virtual void Initialize();
 	virtual void Destroy();
 
-	virtual void OnCollision(COGCollider* pOther);
-
-	GameObject* GetOwner() const;
+	GameObject* GetGO() const;
 
 protected:
 
