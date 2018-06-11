@@ -137,11 +137,13 @@
     <ClCompile Include="Engine\Private\Core\Time.cpp" />
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
-    <ClCompile Include="Game\Private\COGFSM.cpp" />
-    <ClCompile Include="Game\Private\COGPhysics.cpp" />
-    <ClCompile Include="Game\Private\COGTransform.cpp" />
+    <ClCompile Include="Game\Private\COG\COGFSM.cpp" />
+    <ClCompile Include="Game\Private\COG\COGPhysics.cpp" />
+    <ClCompile Include="Game\Private\COG\COGShape.cpp" />
+    <ClCompile Include="Game\Private\COG\COGTransform.cpp" />
+    <ClCompile Include="Game\Private\COG\COGTurret.cpp" />
+    <ClCompile Include="Game\Private\COG\Component.cpp" />
     <ClCompile Include="Game\Private\CollisionInfo.cpp" />
-    <ClCompile Include="Game\Private\Component.cpp" />
     <ClCompile Include="Game\Private\FSMState.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
     <ClCompile Include="Game\Private\GameObjectHandle.cpp" />
@@ -149,8 +151,12 @@
     <ClCompile Include="Game\Private\Input.cpp" />
     <ClCompile Include="Game\Private\InputManager.cpp" />
     <ClCompile Include="Game\Private\Main.cpp" />
-    <ClCompile Include="Game\Private\MissileCommandGame.cpp" />
     <ClCompile Include="Game\Private\Random.cpp" />
+    <ClCompile Include="Game\Private\TurretGame.cpp" />
+    <ClCompile Include="Game\Private\Weapons\IWeapon.cpp" />
+    <ClCompile Include="Game\Private\Weapons\MachineGun.cpp" />
+    <ClCompile Include="Game\Private\Weapons\Shotgun.cpp" />
+    <ClCompile Include="Game\Private\Weapons\Sniper.cpp" />
     <ClCompile Include="Game\Private\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,11 +167,13 @@
     <ClInclude Include="Engine\Public\Core\Types\Vector2.h" />
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
-    <ClInclude Include="Game\Public\COGFSM.h" />
-    <ClInclude Include="Game\Public\COGPhysics.h" />
-    <ClInclude Include="Game\Public\COGTransform.h" />
+    <ClInclude Include="Game\Public\COG\COGFSM.h" />
+    <ClInclude Include="Game\Public\COG\COGPhysics.h" />
+    <ClInclude Include="Game\Public\COG\COGShape.h" />
+    <ClInclude Include="Game\Public\COG\COGTransform.h" />
+    <ClInclude Include="Game\Public\COG\COGTurret.h" />
+    <ClInclude Include="Game\Public\COG\Component.h" />
     <ClInclude Include="Game\Public\CollisionInfo.h" />
-    <ClInclude Include="Game\Public\Component.h" />
     <ClInclude Include="Game\Public\Crossfade.h" />
     <ClInclude Include="Game\Public\FMath.h" />
     <ClInclude Include="Game\Public\FSMState.h" />
@@ -176,9 +184,13 @@
     <ClInclude Include="Game\Public\Input.h" />
     <ClInclude Include="Game\Public\InputManager.h" />
     <ClInclude Include="Game\Public\IPhysicsCollisionEvent.h" />
-    <ClInclude Include="Game\Public\MissileCommandGame.h" />
     <ClInclude Include="Game\Public\Random.h" />
     <ClInclude Include="Game\Public\Singleton.h" />
+    <ClInclude Include="Game\Public\TurretGame.h" />
+    <ClInclude Include="Game\Public\Weapons\IWeapon.h" />
+    <ClInclude Include="Game\Public\Weapons\MachineGun.h" />
+    <ClInclude Include="Game\Public\Weapons\Shotgun.h" />
+    <ClInclude Include="Game\Public\Weapons\Sniper.h" />
     <ClInclude Include="Game\Public\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

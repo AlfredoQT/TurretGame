@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Public\Component.h"
+#include "..\Public\COG\Component.h"
 #include <vector>
 #include <typeinfo>
 #include <string>

@@ -4,6 +4,7 @@
 
 class COGFSM;
 class GameObject;
+class IWeapon;
 
 class COGTurret : public Component
 {
@@ -30,5 +31,7 @@ private:
 
 	// This thing will dictate the state of the turret
 	int mCurrentWeapon;
+
+	std::vector<IWeapon*> mWeapons;
 
 };

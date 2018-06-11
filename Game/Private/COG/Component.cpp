@@ -1,5 +1,5 @@
-#include "..\Public\Component.h"
-#include "..\Public\GameObject.h"
+#include "..\..\Public\COG\Component.h"
+#include "..\..\Public\GameObject.h"
 
 Component::Component(GameObject * pGO)
 	: mGO(pGO)

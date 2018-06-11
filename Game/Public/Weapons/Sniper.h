@@ -4,7 +4,7 @@
 
 struct Vector2;
 
-class Shotgun : public IWeapon
+class Sniper : public IWeapon
 {
 public:
 

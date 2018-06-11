@@ -1,7 +1,7 @@
-#include "..\Public\COGPhysics.h"
-#include "..\Public\IPhysicsCollisionEvent.h"
-#include "..\Public\GameObject.h"
-#include "..\Public\COGTransform.h"
+#include "..\..\Public\COG\COGPhysics.h"
+#include "..\..\Public\IPhysicsCollisionEvent.h"
+#include "..\..\Public\GameObject.h"
+#include "..\..\Public\COG\COGTransform.h"
 #include "Engine\Public\Core\Time.h"
 
 // The components

@@ -1,6 +1,6 @@
-#include "..\Public\COGFSM.h"
-#include "..\Public\GameObject.h"
-#include "..\Public\FSMState.h"
+#include "..\..\Public\COG\COGFSM.h"
+#include "..\..\Public\GameObject.h"
+#include "..\..\Public\FSMState.h"
 
 std::vector<COGFSM*> COGFSM::fsmComponents;
 
