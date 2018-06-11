@@ -1,19 +1,19 @@
-#include "..\Public\MissileCommandGame.h"
+#include "..\Public\TurretGame.h"
 #include "Engine\Public\Engine.h"
 #include "Game\Public\InputManager.h"
 #include "Game\Public\World.h"
 
-MissileCommandGame::MissileCommandGame()
+TurretGame::TurretGame()
 	: mWorld(nullptr)
 {
 }
 
-void MissileCommandGame::Init(Engine* pEngine)
+void TurretGame::Init(Engine* pEngine)
 {
 	mWorld = new World(pEngine);
 }
 
-void MissileCommandGame::Run()
+void TurretGame::Run()
 {
 	InputManager::Instance()->Update();
 
@@ -24,7 +24,7 @@ void MissileCommandGame::Run()
 	mWorld->FreeMemory();
 }
 
-void MissileCommandGame::End()
+void TurretGame::End()
 {
 	mWorld->Destroy();
 }

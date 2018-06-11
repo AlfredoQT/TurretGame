@@ -11,8 +11,7 @@ public:
 
 	COGTransform(GameObject* pGO);
 
-	Vector2 GetPosition() const;
-	void SetPosition(const Vector2& pPosition);
+	Vector2& GetPosition();
 
 private:
 

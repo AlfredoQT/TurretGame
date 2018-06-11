@@ -5,12 +5,7 @@ COGTransform::COGTransform(GameObject* pGO)
 {
 }
 
-Vector2 COGTransform::GetPosition() const
+Vector2& COGTransform::GetPosition()
 {
 	return mPosition;
-}
-
-void COGTransform::SetPosition(const Vector2 & pPosition)
-{
-	mPosition = pPosition;
 }

@@ -1,6 +1,6 @@
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
-#include "Game\Public\GameObjectHandle.h"
+#include "..\Public\GameObjectHandle.h"
 #include "Engine\Public\Engine.h"
 
 World::World(Engine* pEngine)

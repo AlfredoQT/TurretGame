@@ -138,7 +138,9 @@
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
     <ClCompile Include="Game\Private\COGFSM.cpp" />
+    <ClCompile Include="Game\Private\COGPhysics.cpp" />
     <ClCompile Include="Game\Private\COGTransform.cpp" />
+    <ClCompile Include="Game\Private\CollisionInfo.cpp" />
     <ClCompile Include="Game\Private\Component.cpp" />
     <ClCompile Include="Game\Private\FSMState.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
@@ -160,7 +162,9 @@
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
     <ClInclude Include="Game\Public\COGFSM.h" />
+    <ClInclude Include="Game\Public\COGPhysics.h" />
     <ClInclude Include="Game\Public\COGTransform.h" />
+    <ClInclude Include="Game\Public\CollisionInfo.h" />
     <ClInclude Include="Game\Public\Component.h" />
     <ClInclude Include="Game\Public\Crossfade.h" />
     <ClInclude Include="Game\Public\FMath.h" />

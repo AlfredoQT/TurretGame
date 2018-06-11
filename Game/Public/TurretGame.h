@@ -5,11 +5,11 @@
 class Engine;
 class World;
 
-class MissileCommandGame : public IGame
+class TurretGame : public IGame
 {
 public:
 
-	MissileCommandGame();
+	TurretGame();
 
 	void Init(Engine* pEngine) override;
 	void Run() override;
