@@ -2,6 +2,7 @@
 
 class COGFSM;
 
+// A simple abstract class to define a state from a state machine
 class FSMState
 {
 public:

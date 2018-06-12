@@ -135,6 +135,15 @@
     <ClCompile Include="Game\Private\COG\Component.cpp">
       <Filter>Source Files\Game\Private\COG</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Private\FSMMachineGunTurretState.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\FSMShotgunTurretState.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\FSMSniperTurretState.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Public\Engine.h">
@@ -232,6 +241,15 @@
     </ClInclude>
     <ClInclude Include="Game\Public\COG\Component.h">
       <Filter>Source Files\Game\Public\COG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\FSMMachineGunTurretState.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\FSMShotgunTurretState.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\FSMSniperTurretState.h">
+      <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

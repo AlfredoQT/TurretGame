@@ -5,6 +5,7 @@
 #include "..\..\Public\Weapons\Sniper.h"
 #include "..\..\Public\Weapons\Shotgun.h"
 #include "..\..\Public\COG\COGTransform.h"
+#include "..\..\Public\FSMSniperTurretState.h"
 
 // The components
 std::vector<COGTurret*> COGTurret::turretComponents;
@@ -22,6 +23,8 @@ COGTurret::COGTurret(GameObject * pGO)
 void COGTurret::Initialize()
 {
 	mFSM = mGO->FindComponent<COGFSM>();
+	// The initial state
+	mFSM->SetInitial(new FSMSniperTurretState(mFSM));
 	AddToComponentVector(turretComponents);
 }
 

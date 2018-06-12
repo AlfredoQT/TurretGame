@@ -144,6 +144,9 @@
     <ClCompile Include="Game\Private\COG\COGTurret.cpp" />
     <ClCompile Include="Game\Private\COG\Component.cpp" />
     <ClCompile Include="Game\Private\CollisionInfo.cpp" />
+    <ClCompile Include="Game\Private\FSMMachineGunTurretState.cpp" />
+    <ClCompile Include="Game\Private\FSMShotgunTurretState.cpp" />
+    <ClCompile Include="Game\Private\FSMSniperTurretState.cpp" />
     <ClCompile Include="Game\Private\FSMState.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
     <ClCompile Include="Game\Private\GameObjectHandle.cpp" />
@@ -176,6 +179,9 @@
     <ClInclude Include="Game\Public\CollisionInfo.h" />
     <ClInclude Include="Game\Public\Crossfade.h" />
     <ClInclude Include="Game\Public\FMath.h" />
+    <ClInclude Include="Game\Public\FSMMachineGunTurretState.h" />
+    <ClInclude Include="Game\Public\FSMShotgunTurretState.h" />
+    <ClInclude Include="Game\Public\FSMSniperTurretState.h" />
     <ClInclude Include="Game\Public\FSMState.h" />
     <ClInclude Include="Game\Public\GameObject.h" />
     <ClInclude Include="Game\Public\GameObjectHandle.h" />
