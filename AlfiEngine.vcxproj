@@ -137,7 +137,9 @@
     <ClCompile Include="Engine\Private\Core\Time.cpp" />
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
+    <ClCompile Include="Game\Private\COG\COGCircleShape.cpp" />
     <ClCompile Include="Game\Private\COG\COGFSM.cpp" />
+    <ClCompile Include="Game\Private\COG\COGLineShape.cpp" />
     <ClCompile Include="Game\Private\COG\COGPhysics.cpp" />
     <ClCompile Include="Game\Private\COG\COGShape.cpp" />
     <ClCompile Include="Game\Private\COG\COGTransform.cpp" />
@@ -149,6 +151,7 @@
     <ClCompile Include="Game\Private\FSMSniperTurretState.cpp" />
     <ClCompile Include="Game\Private\FSMState.cpp" />
     <ClCompile Include="Game\Private\GameObject.cpp" />
+    <ClCompile Include="Game\Private\GameObjectFactory.cpp" />
     <ClCompile Include="Game\Private\GameObjectHandle.cpp" />
     <ClCompile Include="Game\Private\GameObjectInventory.cpp" />
     <ClCompile Include="Game\Private\Input.cpp" />
@@ -170,7 +173,9 @@
     <ClInclude Include="Engine\Public\Core\Types\Vector2.h" />
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
+    <ClInclude Include="Game\Public\COG\COGCircleShape.h" />
     <ClInclude Include="Game\Public\COG\COGFSM.h" />
+    <ClInclude Include="Game\Public\COG\COGLineShape.h" />
     <ClInclude Include="Game\Public\COG\COGPhysics.h" />
     <ClInclude Include="Game\Public\COG\COGShape.h" />
     <ClInclude Include="Game\Public\COG\COGTransform.h" />
@@ -184,6 +189,7 @@
     <ClInclude Include="Game\Public\FSMSniperTurretState.h" />
     <ClInclude Include="Game\Public\FSMState.h" />
     <ClInclude Include="Game\Public\GameObject.h" />
+    <ClInclude Include="Game\Public\GameObjectFactory.h" />
     <ClInclude Include="Game\Public\GameObjectHandle.h" />
     <ClInclude Include="Game\Public\GameObjectInventory.h" />
     <ClInclude Include="Game\Public\IGame.h" />

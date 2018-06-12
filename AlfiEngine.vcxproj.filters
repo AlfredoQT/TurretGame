@@ -144,6 +144,15 @@
     <ClCompile Include="Game\Private\FSMSniperTurretState.cpp">
       <Filter>Source Files\Game\Private</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Private\COG\COGCircleShape.cpp">
+      <Filter>Source Files\Game\Private\COG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\COG\COGLineShape.cpp">
+      <Filter>Source Files\Game\Private\COG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\GameObjectFactory.cpp">
+      <Filter>Source Files\Game\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Public\Engine.h">
@@ -249,6 +258,15 @@
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\FSMSniperTurretState.h">
+      <Filter>Source Files\Game\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\COG\COGCircleShape.h">
+      <Filter>Source Files\Game\Public\COG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\COG\COGLineShape.h">
+      <Filter>Source Files\Game\Public\COG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\GameObjectFactory.h">
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
   </ItemGroup>

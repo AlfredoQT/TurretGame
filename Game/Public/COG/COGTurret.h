@@ -3,6 +3,8 @@
 #include "Component.h"
 
 class COGFSM;
+class COGLineShape;
+class COGTransform;
 class GameObject;
 class IWeapon;
 
@@ -33,5 +35,10 @@ private:
 	int mCurrentWeapon;
 
 	std::vector<IWeapon*> mWeapons;
+
+	COGLineShape* mLineShape;
+	COGTransform* mTransform;
+
+	const float TURRET_LENGTH = 40.0f;
 
 };
