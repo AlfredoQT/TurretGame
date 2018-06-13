@@ -20,6 +20,7 @@ GameObject::~GameObject()
 		pComponent->Destroy();
 
 		delete pComponent;
+		pComponent = nullptr;
 	}
 	
 	GameObjectInventory::Instance()->UnRegister(this);
