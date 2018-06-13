@@ -7,6 +7,7 @@
 #include "Game\Public\COG\COGTurret.h"
 #include "Game\Public\COG\COGShape.h"
 #include "Game\Public\COG\COGGameUI.h"
+#include "Game\Public\COG\COGEnemySpawner.h"
 
 World::World(Engine* pEngine)
 {
@@ -57,6 +58,11 @@ void World::Update()
 	for (COGTurret* turret : COGTurret::turretComponents)
 	{
 		turret->Update();
+	}
+	// The spawner
+	if (COGEnemySpawner::spawnerComponent != nullptr)
+	{
+		COGEnemySpawner::spawnerComponent->SpawnEnemies();
 	}
 	// Update the UI
 	if (COGGameUI::gameUIComponent != nullptr)

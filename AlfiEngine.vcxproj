@@ -138,6 +138,7 @@
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
     <ClCompile Include="Game\Private\COG\COGCircleShape.cpp" />
+    <ClCompile Include="Game\Private\COG\COGEnemySpawner.cpp" />
     <ClCompile Include="Game\Private\COG\COGFSM.cpp" />
     <ClCompile Include="Game\Private\COG\COGGameUI.cpp" />
     <ClCompile Include="Game\Private\COG\COGLineShape.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
     <ClInclude Include="Game\Public\COG\COGCircleShape.h" />
+    <ClInclude Include="Game\Public\COG\COGEnemySpawner.h" />
     <ClInclude Include="Game\Public\COG\COGFSM.h" />
     <ClInclude Include="Game\Public\COG\COGGameUI.h" />
     <ClInclude Include="Game\Public\COG\COGLineShape.h" />

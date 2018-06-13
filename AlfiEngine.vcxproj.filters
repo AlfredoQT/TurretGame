@@ -156,6 +156,9 @@
     <ClCompile Include="Game\Private\COG\COGGameUI.cpp">
       <Filter>Source Files\Game\Private\COG</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Private\COG\COGEnemySpawner.cpp">
+      <Filter>Source Files\Game\Private\COG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Public\Engine.h">
@@ -273,6 +276,9 @@
       <Filter>Source Files\Game\Public</Filter>
     </ClInclude>
     <ClInclude Include="Game\Public\COG\COGGameUI.h">
+      <Filter>Source Files\Game\Public\COG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\COG\COGEnemySpawner.h">
       <Filter>Source Files\Game\Public\COG</Filter>
     </ClInclude>
   </ItemGroup>

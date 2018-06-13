@@ -12,6 +12,7 @@
 #include "Engine\Public\Core\Types\Vector2.h"
 #include "Engine\Public\Core\Types\Color.h"
 #include "Game\Public\COG\COGGameUI.h"
+#include "Game\Public\COG\COGEnemySpawner.h"
 
 // Singleton
 GameObjectFactory* Singleton<GameObjectFactory>::mSingleton = nullptr;
@@ -124,6 +125,29 @@ GameObject * GameObjectFactory::InstantiateUI(COGTurret * pTurret)
 	COGGameUI* gameUI = new COGGameUI(gameObject);
 	gameUI->SetTurret(pTurret);
 	gameObject->AddComponent(gameUI);
+
+	// Store the handle
+	mWorld->Add(gameObject->GetHandle());
+
+	// Init the object
+	gameObject->Initialize();
+
+	return gameObject;
+}
+
+GameObject * GameObjectFactory::InstantiateEnemySpawner(COGTransform * pTarget)
+{
+	// Do nothing if there's no world set
+	if (mWorld == nullptr)
+	{
+		return nullptr;
+	}
+	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("EnemySpawner" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
+
+	// Add the enemy spawner component
+	COGEnemySpawner* spawner = new COGEnemySpawner(gameObject);
+	spawner->SetTarget(pTarget);
+	gameObject->AddComponent(spawner);
 
 	// Store the handle
 	mWorld->Add(gameObject->GetHandle());
