@@ -4,6 +4,8 @@
 #include "Game\Public\World.h"
 #include "Game\Public\GameObjectFactory.h"
 #include "Engine\Public\Core\Types\Vector2.h"
+#include "Game\Public\COG\COGTurret.h"
+#include "Game\Public\GameObject.h"
 
 TurretGame::TurretGame()
 	: mWorld(nullptr)
@@ -16,7 +18,10 @@ void TurretGame::Init(Engine* pEngine)
 	GameObjectFactory::Instance()->SetWorld(mWorld);
 	
 	// Add the turret
-	GameObjectFactory::Instance()->InstantiateTurret(Vector2(50.0f, 300.0f));
+	COGTurret* turret = GameObjectFactory::Instance()->InstantiateTurret(Vector2(50.0f, 300.0f))->FindComponent<COGTurret>();
+
+	// The UI
+	GameObjectFactory::Instance()->InstantiateUI(turret);
 }
 
 void TurretGame::Run()

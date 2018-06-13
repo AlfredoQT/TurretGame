@@ -77,3 +77,8 @@ void COGTurret::SetWeaponIndex(int newWeapon)
 	}
 	mCurrentWeapon = newWeapon;
 }
+
+IWeapon* COGTurret::GetCurrentWeapon()
+{
+	return mWeapons[mCurrentWeapon];
+}

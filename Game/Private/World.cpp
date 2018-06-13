@@ -6,6 +6,7 @@
 #include "Game\Public\COG\COGPhysics.h"
 #include "Game\Public\COG\COGTurret.h"
 #include "Game\Public\COG\COGShape.h"
+#include "Game\Public\COG\COGGameUI.h"
 
 World::World(Engine* pEngine)
 {
@@ -56,6 +57,11 @@ void World::Update()
 	for (COGTurret* turret : COGTurret::turretComponents)
 	{
 		turret->Update();
+	}
+	// Update the UI
+	if (COGGameUI::gameUIComponent != nullptr)
+	{
+		COGGameUI::gameUIComponent->ShowUI();
 	}
 }
 

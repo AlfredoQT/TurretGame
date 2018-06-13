@@ -11,6 +11,7 @@
 #include "..\Public\COG\COGTransform.h"
 #include "Engine\Public\Core\Types\Vector2.h"
 #include "Engine\Public\Core\Types\Color.h"
+#include "Game\Public\COG\COGGameUI.h"
 
 // Singleton
 GameObjectFactory* Singleton<GameObjectFactory>::mSingleton = nullptr;
@@ -81,7 +82,7 @@ GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, cons
 	{
 		return nullptr;
 	}
-	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("Turret" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
+	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("Bullet" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
 
 	COGTransform* transform = new COGTransform(gameObject);
 	transform->GetPosition() = pOrigin;
@@ -101,6 +102,28 @@ GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, cons
 	physics->GetRadius() = 7.0f;
 	physics->GetVelocity() = Vector2(pDir.x, pDir.y) * pSpeed;
 	gameObject->AddComponent(physics);
+
+	// Store the handle
+	mWorld->Add(gameObject->GetHandle());
+
+	// Init the object
+	gameObject->Initialize();
+
+	return gameObject;
+}
+
+GameObject * GameObjectFactory::InstantiateUI(COGTurret * pTurret)
+{
+	// Do nothing if there's no world set
+	if (mWorld == nullptr)
+	{
+		return nullptr;
+	}
+	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("UI" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
+
+	COGGameUI* gameUI = new COGGameUI(gameObject);
+	gameUI->SetTurret(pTurret);
+	gameObject->AddComponent(gameUI);
 
 	// Store the handle
 	mWorld->Add(gameObject->GetHandle());

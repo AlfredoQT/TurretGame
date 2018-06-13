@@ -26,6 +26,8 @@ public:
 	// This will be modified by each state
 	void SetWeaponIndex(int newWeapon);
 
+	IWeapon* GetCurrentWeapon();
+
 private:
 
 	// The state machine of the turret
