@@ -150,7 +150,6 @@ void Engine::DrawText(std::string pFontFile, const int& pFontSize, const std::st
 {
 	// Go look for the font, I know it's slow, but SDL_ttf did not let me set the fontsize
 	TTF_Font* font = TTF_OpenFont(pFontFile.c_str(), pFontSize);
-
 	// Just return if we could not open the font
 	if (font == nullptr)
 	{
@@ -201,7 +200,8 @@ void Engine::DrawText(std::string pFontFile, const int& pFontSize, const std::st
 	// Draw it, FINALLY
 	SDL_RenderCopy(mRenderer, textTexture, nullptr, &textRect);
 
-	// Clean up the texture
+	// Clean up the texture and surface
+	SDL_FreeSurface(textSurface);
 	SDL_DestroyTexture(textTexture);
 
 	// Close the font, pretty slow again
