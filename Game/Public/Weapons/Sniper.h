@@ -10,6 +10,6 @@ public:
 
 	virtual std::string Type() const override;
 
-	virtual void Shoot(const Vector2& origin) override;
+	virtual void Shoot(const Vector2& origin, const Vector2& dir) override;
 
 };

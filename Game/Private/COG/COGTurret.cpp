@@ -10,6 +10,7 @@
 #include "..\..\Public\COG\COGLineShape.h"
 #include "..\..\Public\FMath.h"
 #include "..\..\Public\Input.h"
+#include "Engine\Public\Utils\Debug.h"
 
 // The components
 std::vector<COGTurret*> COGTurret::turretComponents;
@@ -47,17 +48,23 @@ void COGTurret::Destroy()
 
 void COGTurret::Update()
 {
-	// Tell the weapon to shoot itself
-	mWeapons[mCurrentWeapon]->Shoot(Vector2());
-
 	// Calculate a vector from the origin to the mouse, to create the turret
 	Vector2 toMouse = Input::Instance()->GetMousePosition() - mTransform->GetPosition();
 
 	// The angle with respect to x axis
 	float toMouseAngle = FMath::Atan2(toMouse.y, toMouse.x);
 
+	// Clamp the angle
+	toMouseAngle = FMath::Clamp(toMouseAngle, -FMath::PI / 4.0f, FMath::PI / 4.0f);
+
+	// The muzzle of the turret
+	Vector2 muzzle = mTransform->GetPosition() + Vector2(FMath::Cos(toMouseAngle), FMath::Sin(toMouseAngle)) * TURRET_LENGTH;
+
 	// Update the line shape point
 	mLineShape->SetPoint(1, mTransform->GetPosition() + Vector2(FMath::Cos(toMouseAngle), FMath::Sin(toMouseAngle)) * TURRET_LENGTH);
+
+	// Tell the weapon to shoot itself
+	mWeapons[mCurrentWeapon]->Shoot(muzzle, Vector2(FMath::Cos(toMouseAngle), FMath::Sin(toMouseAngle)));
 }
 
 void COGTurret::SetWeaponIndex(int newWeapon)

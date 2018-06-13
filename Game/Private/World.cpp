@@ -2,6 +2,10 @@
 #include "..\Public\GameObject.h"
 #include "..\Public\GameObjectHandle.h"
 #include "Engine\Public\Engine.h"
+#include "Game\Public\COG\COGFSM.h"
+#include "Game\Public\COG\COGPhysics.h"
+#include "Game\Public\COG\COGTurret.h"
+#include "Game\Public\COG\COGShape.h"
 
 World::World(Engine* pEngine)
 {
@@ -24,7 +28,35 @@ void World::Destroy()
 
 void World::Update()
 {
-	
+	// Physics
+	for (COGPhysics* physics : COGPhysics::physicsComponents)
+	{
+		if (physics != nullptr)
+		{
+			physics->Simulate();
+		}
+	}
+	// Rendering
+	for (COGShape* shape : COGShape::shapeComponents)
+	{
+		if (shape != nullptr)
+		{
+			shape->Render();
+		}
+	}
+	// Tell the FSMs to update
+	for (COGFSM* fsm : COGFSM::fsmComponents)
+	{
+		if (fsm != nullptr)
+		{
+			fsm->Update();
+		}
+	}
+	// Update the turret(s, most likely no)
+	for (COGTurret* turret : COGTurret::turretComponents)
+	{
+		turret->Update();
+	}
 }
 
 void World::Add(GameObjectHandle pHandle)
