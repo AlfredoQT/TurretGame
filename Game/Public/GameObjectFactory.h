@@ -15,8 +15,10 @@ public:
 
 	void SetWorld(World* pWorld);
 
-	// All gameobjects have a transform
+	// The main guy right here
 	GameObject* InstantiateTurret(const Vector2& pPosition);
+
+	GameObject* InstantiateBullet(const Vector2& pOrigin, const Vector2& pDir, const float& pSpeed);
 
 private:
 
