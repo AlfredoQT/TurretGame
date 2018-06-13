@@ -25,8 +25,8 @@ void Shotgun::Shoot(const Vector2& origin, const Vector2& dir)
 		float angle = FMath::Atan2(dir.y, dir.x);
 
 		// Three guys, just 20 degrees
-		GameObjectFactory::Instance()->InstantiateBullet(origin, Vector2(FMath::Cos(angle - 20.0f * FMath::Deg2Rad), FMath::Sin(angle - 20.0f * FMath::Deg2Rad)), 300.0f);
-		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 300.0f);
-		GameObjectFactory::Instance()->InstantiateBullet(origin, Vector2(FMath::Cos(angle + 20.0f * FMath::Deg2Rad), FMath::Sin(angle + 20.0f * FMath::Deg2Rad)), 300.0f);
+		GameObjectFactory::Instance()->InstantiateBullet(origin, Vector2(FMath::Cos(angle - 20.0f * FMath::Deg2Rad), FMath::Sin(angle - 20.0f * FMath::Deg2Rad)), 300.0f, "Player", "Enemy");
+		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 300.0f, "Player", "Enemy");
+		GameObjectFactory::Instance()->InstantiateBullet(origin, Vector2(FMath::Cos(angle + 20.0f * FMath::Deg2Rad), FMath::Sin(angle + 20.0f * FMath::Deg2Rad)), 300.0f, "Player", "Enemy");
 	}
 }

@@ -41,7 +41,7 @@ void COGEnemySpawner::SpawnEnemies()
 		Vector2 dir = (mTarget->GetPosition() - origin).Normalized();
 
 		// Spawn the bullet with a random velocity
-		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, Random::Instance()->NextFloat(400.0f, 500.0f));
+		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, Random::Instance()->NextFloat(400.0f, 500.0f), "Enemy", "Player");
 
 		// Reset the timers
 		mTimeBetweenSpawns = Random::Instance()->NextFloat(0.7f, 1.5f);

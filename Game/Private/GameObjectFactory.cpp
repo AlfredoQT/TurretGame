@@ -4,6 +4,7 @@
 #include "..\Public\COG\COGFSM.h"
 #include "..\Public\COG\COGTurret.h"
 #include "..\Public\COG\COGPhysics.h"
+#include "Game\Public\COG\COGBullet.h"
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
 #include "..\Public\GameObjectHandle.h"
@@ -36,6 +37,9 @@ GameObject * GameObjectFactory::InstantiateTurret(const Vector2 & pPosition)
 		return nullptr;
 	}
 	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("Turret" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
+
+	// Player tag
+	gameObject->SetTag("Player");
 
 	COGTransform* transform = new COGTransform(gameObject);
 	transform->GetPosition() = pPosition;
@@ -76,14 +80,16 @@ GameObject * GameObjectFactory::InstantiateTurret(const Vector2 & pPosition)
 	return gameObject;
 }
 
-GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, const Vector2 & pDir, const float & pSpeed)
+GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, const Vector2 & pDir, const float & pSpeed, const std::string& pTag, const std::string& pTargetTag)
 {
 	// Do nothing if there's no world set
 	if (mWorld == nullptr)
 	{
 		return nullptr;
 	}
-	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("Bullet" + (++mNextID) + std::to_string(Random::Instance()->NextFloat())));
+	GameObject* gameObject = new GameObject(mWorld, std::hash<std::string>{}("Bullet" + (++mNextID) + std::to_string(Random::Instance()->NextFloat()) + pTag + pTargetTag));
+
+	gameObject->SetTag(pTag);
 
 	COGTransform* transform = new COGTransform(gameObject);
 	transform->GetPosition() = pOrigin;
@@ -103,6 +109,11 @@ GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, cons
 	physics->GetRadius() = 7.0f;
 	physics->GetVelocity() = Vector2(pDir.x, pDir.y) * pSpeed;
 	gameObject->AddComponent(physics);
+
+	// The bullet component that will damage
+	COGBullet* bullet = new COGBullet(gameObject);
+	bullet->SetTargetTag(pTargetTag);
+	gameObject->AddComponent(bullet);
 
 	// Store the handle
 	mWorld->Add(gameObject->GetHandle());

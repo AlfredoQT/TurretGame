@@ -137,6 +137,7 @@
     <ClCompile Include="Engine\Private\Core\Time.cpp" />
     <ClCompile Include="Engine\Private\Engine.cpp" />
     <ClCompile Include="Engine\Private\Utils\Debug.cpp" />
+    <ClCompile Include="Game\Private\COG\COGBullet.cpp" />
     <ClCompile Include="Game\Private\COG\COGCircleShape.cpp" />
     <ClCompile Include="Game\Private\COG\COGEnemySpawner.cpp" />
     <ClCompile Include="Game\Private\COG\COGFSM.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Engine\Public\Core\Types\Vector2.h" />
     <ClInclude Include="Engine\Public\Engine.h" />
     <ClInclude Include="Engine\Public\Utils\Debug.h" />
+    <ClInclude Include="Game\Public\COG\COGBullet.h" />
     <ClInclude Include="Game\Public\COG\COGCircleShape.h" />
     <ClInclude Include="Game\Public\COG\COGEnemySpawner.h" />
     <ClInclude Include="Game\Public\COG\COGFSM.h" />

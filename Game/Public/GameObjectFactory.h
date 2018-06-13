@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
+#include <string>
 
 class World;
 class GameObject;
@@ -20,7 +21,7 @@ public:
 	// The main guy right here
 	GameObject* InstantiateTurret(const Vector2& pPosition);
 
-	GameObject* InstantiateBullet(const Vector2& pOrigin, const Vector2& pDir, const float& pSpeed);
+	GameObject* InstantiateBullet(const Vector2& pOrigin, const Vector2& pDir, const float& pSpeed, const std::string& pTag, const std::string& pTargetTag);
 
 	// I guess there's a more elegant way to pass the turret, but since I'm initalizing the game objects in here, this is the best for now
 	// Although I should move the initialize the world

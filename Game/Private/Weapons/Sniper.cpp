@@ -19,6 +19,6 @@ void Sniper::Shoot(const Vector2& origin, const Vector2& dir)
 	if (Input::Instance()->IsMouseButtonPressed(MouseButton::LEFT))
 	{
 		Debug::OutputLine("Sniper!!!");
-		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 800.0f);
+		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 800.0f, "Player", "Enemy");
 	}
 }

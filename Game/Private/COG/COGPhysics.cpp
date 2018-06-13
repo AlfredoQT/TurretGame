@@ -56,6 +56,15 @@ void COGPhysics::Simulate()
 				{
 					return;
 				}
+
+				if (IsColliding(physicsOther))
+				{
+					// The collision event handlers
+					for (IPhysicsCollisionEvent* collisionEvent : mCollisionEvents)
+					{
+						collisionEvent->OnCollision(this, physicsOther);
+					}
+				}
 			}
 		}
 	}

@@ -8,6 +8,7 @@
 #include "Game\Public\COG\COGShape.h"
 #include "Game\Public\COG\COGGameUI.h"
 #include "Game\Public\COG\COGEnemySpawner.h"
+#include "Game\Public\COG\COGBullet.h"
 
 World::World(Engine* pEngine)
 {
@@ -21,7 +22,9 @@ void World::Destroy()
 	{
 		if (handle.IsValid())
 		{
-			delete handle.Get();
+			GameObject* gameObject = handle.Get();
+			delete gameObject;
+			gameObject = nullptr;
 		}
 	}
 
@@ -57,12 +60,23 @@ void World::Update()
 	// Update the turret(s, most likely no)
 	for (COGTurret* turret : COGTurret::turretComponents)
 	{
-		turret->Update();
+		if (turret != nullptr)
+		{
+			turret->Update();
+		}
 	}
 	// The spawner
 	if (COGEnemySpawner::spawnerComponent != nullptr)
 	{
 		COGEnemySpawner::spawnerComponent->SpawnEnemies();
+	}
+	// The bullets
+	for (COGBullet* bullet : COGBullet::bulletComponents)
+	{
+		if (bullet != nullptr)
+		{
+			bullet->CheckWallCollisions();
+		}
 	}
 	// Update the UI
 	if (COGGameUI::gameUIComponent != nullptr)

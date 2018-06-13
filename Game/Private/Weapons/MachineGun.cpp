@@ -34,7 +34,7 @@ void MachineGun::Shoot(const Vector2& origin, const Vector2& dir)
 			Debug::OutputLine("MachineGun!!!");
 
 			// Spawn the bullet
-			GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 650.0f);
+			GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 650.0f, "Player", "Enemy");
 
 			// Reset the timer
 			timeForNextShot = 0.0f;
