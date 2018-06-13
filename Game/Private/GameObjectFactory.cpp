@@ -5,6 +5,7 @@
 #include "..\Public\COG\COGTurret.h"
 #include "..\Public\COG\COGPhysics.h"
 #include "Game\Public\COG\COGBullet.h"
+#include "Game\Public\COG\COGHealth.h"
 #include "..\Public\World.h"
 #include "..\Public\GameObject.h"
 #include "..\Public\GameObjectHandle.h"
@@ -70,6 +71,11 @@ GameObject * GameObjectFactory::InstantiateTurret(const Vector2 & pPosition)
 	// The main one
 	COGTurret* turret = new COGTurret(gameObject);
 	gameObject->AddComponent(turret);
+
+	// The health
+	COGHealth* health = new COGHealth(gameObject);
+	health->SetMaxHealth(100.0f);
+	gameObject->AddComponent(health);
 
 	// Store the handle
 	mWorld->Add(gameObject->GetHandle());

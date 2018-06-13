@@ -5,6 +5,7 @@
 #include "Game\Public\GameObject.h"
 #include "Game\Public\GameObjectHandle.h"
 #include "Game\Public\World.h"
+#include "Game\Public\COG\COGHealth.h"
 #include <string>
 
 // Components
@@ -62,7 +63,17 @@ void COGBullet::OnCollision(COGPhysics * pMe, COGPhysics * pOther)
 			if (mTargetTag.compare(otherGO->GetTag()) == 0)
 			{
 				// Get health component from other
-
+				COGHealth* health = otherGO->FindComponent<COGHealth>();
+				
+				// Take damage in this case
+				if (health != nullptr)
+				{
+					health->ReceiveDamage(5.0f);
+				}
+				else
+				{
+					otherGO->GetWorld()->Delete(otherGO->GetHandle());
+				}
 				// Destroy self
 				if (mGO != nullptr)
 				{
