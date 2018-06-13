@@ -75,7 +75,9 @@ void World::FreeMemory()
 	{
 		if (mHandlesToDelete[i].IsValid())
 		{
-			delete mHandlesToDelete[i].Get();
+			GameObject* gameObject = mHandlesToDelete[i].Get();
+			delete gameObject;
+			gameObject = nullptr;
 		}
 	}
 	mHandlesToDelete.clear();
@@ -89,9 +91,4 @@ std::vector<GameObjectHandle> World::GetHandles()
 Engine* World::GetEngine() const
 {
 	return mEngine;
-}
-
-void World::SetGameManager(COGGameManager * pGameManager)
-{
-	mGameManager = pGameManager;
 }

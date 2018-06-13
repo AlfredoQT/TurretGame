@@ -6,6 +6,7 @@
 namespace FMath
 {
 	const float PI = 3.141592f;
+	const float Deg2Rad = PI / 180.0f;
 
 	template<class T>
 	T Max(const T a, const T b)
