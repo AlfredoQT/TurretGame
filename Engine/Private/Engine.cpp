@@ -5,6 +5,7 @@
 #include "Engine\Public\Core\Types\Vector2.h"
 #include "sdl2_gfxprimitives.h"
 #include "Game\Public\IGame.h"
+#include "SDL_ttf.h"
 
 int Engine::Init(IGame* pGame, const char* pTitle, const int& pWidth, const int& pHeight)
 {
@@ -37,6 +38,17 @@ int Engine::Init(IGame* pGame, const char* pTitle, const int& pWidth, const int&
 	{
 		SDL_DestroyWindow(mWindow);
 		SDL_Quit();
+		return 1;
+	}
+
+	// Initialize the font engine, and check for errors
+	if (TTF_Init() != 0)
+	{
+		// Cleanup
+		SDL_DestroyRenderer(mRenderer);
+		SDL_DestroyWindow(mWindow);
+		SDL_Quit();
+		return 1;
 	}
 
 	// Initialize the game
@@ -87,6 +99,7 @@ void Engine::Quit(IGame* pGame) const
 	// Cleanup
 	SDL_DestroyRenderer(mRenderer);
 	SDL_DestroyWindow(mWindow);
+	TTF_Quit();
 
 	// Simply quit all subsystems in sdl
 	SDL_Quit();
@@ -131,4 +144,66 @@ void Engine::DrawRect(const Vector2 & pTopLeft, const Vector2 & pBotRight, const
 	rect.h = static_cast<int>(pBotRight.y - pBotRight.y);
 
 	SDL_RenderDrawRect(mRenderer, &rect);
+}
+
+void Engine::DrawText(std::string pFontFile, const int& pFontSize, const std::string pMessage, const Vector2 & pPosition, const Color & pColor)
+{
+	// Go look for the font, I know it's slow, but SDL_ttf did not let me set the fontsize
+	TTF_Font* font = TTF_OpenFont(pFontFile.c_str(), pFontSize);
+
+	// Just return if we could not open the font
+	if (font == nullptr)
+	{
+		return;
+	}
+
+	// Construct the color
+	SDL_Color color;
+	color.r = pColor.R;
+	color.g = pColor.G;
+	color.b = pColor.B;
+	color.a = pColor.A;
+
+	// Get a surface from sdl_ttf that will help create the texture, which will be rendered with the mRenderer
+	// I use blended to be able to use the alpha channel
+	SDL_Surface* textSurface = TTF_RenderText_Blended(font, pMessage.c_str(), color);
+
+	// Close the font on fail
+	if (textSurface == nullptr)
+	{
+		TTF_CloseFont(font);
+		return;
+	}
+
+	// Create the texture from the text surface
+	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(mRenderer, textSurface);
+
+	// A problem loading the texture
+	if (textTexture == nullptr)
+	{
+		// Cleanup
+		SDL_FreeSurface(textSurface);
+		TTF_CloseFont(font);
+		return;
+	}
+
+	// The rectangle to hold the texture
+	SDL_Rect textRect;
+
+	// Store the position in the screen in the rectangle
+	textRect.x = static_cast<int>(pPosition.x);
+	textRect.y = static_cast<int>(pPosition.y);
+
+	// Query the texture, why did they made it this way. I guess I should write my extension at some point
+	// Just query to assign the width and height of the rectangle
+	SDL_QueryTexture(textTexture, nullptr, nullptr, &textRect.w, &textRect.h);
+
+	// Draw it, FINALLY
+	SDL_RenderCopy(mRenderer, textTexture, nullptr, &textRect);
+
+	// Clean up the texture
+	SDL_DestroyTexture(textTexture);
+
+	// Close the font, pretty slow again
+	TTF_CloseFont(font);
 }

@@ -9,11 +9,16 @@ std::string Sniper::Type() const
 	return "Sniper";
 }
 
+std::string Sniper::Instructions() const
+{
+	return "Press LMB to shoot a fast bullet";
+}
+
 void Sniper::Shoot(const Vector2& origin, const Vector2& dir)
 {
 	if (Input::Instance()->IsMouseButtonPressed(MouseButton::LEFT))
 	{
 		Debug::OutputLine("Sniper!!!");
-		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 700.0f);
+		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 800.0f);
 	}
 }

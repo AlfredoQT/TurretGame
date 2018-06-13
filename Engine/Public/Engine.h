@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 struct SDL_Window;
 struct SDL_Renderer;
 struct Color;
@@ -23,6 +25,10 @@ public:
 	void DrawFillCircle(const Vector2& pPosition, const float& pRadius, const Color& pColor);
 	void DrawCircle(const Vector2& pPosition, const float& pRadius, const Color& pColor);
 	void DrawRect(const Vector2& pTopLeft, const Vector2& pBotRight, const Color& pColor);
+
+	// This will open and close the font everytime, so it may be a little slow, but I can set different sizes every time
+	// Drawn on top left
+	void DrawText(std::string pFontFile, const int& pFontSize, const std::string pMessage, const Vector2& pPosition, const Color& pColor);
 
 private:
 

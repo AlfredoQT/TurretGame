@@ -10,6 +10,11 @@ std::string Shotgun::Type() const
 	return "Shotgun";
 }
 
+std::string Shotgun::Instructions() const
+{
+	return "Press LMB to shoot three bullets";
+}
+
 void Shotgun::Shoot(const Vector2& origin, const Vector2& dir)
 {
 	if (Input::Instance()->IsMouseButtonPressed(MouseButton::LEFT))

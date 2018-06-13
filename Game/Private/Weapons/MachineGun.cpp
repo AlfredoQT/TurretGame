@@ -15,6 +15,11 @@ std::string MachineGun::Type() const
 	return "Machine Gun";
 }
 
+std::string MachineGun::Instructions() const
+{
+	return "Hold LMB to shoot many bullets!";
+}
+
 void MachineGun::Shoot(const Vector2& origin, const Vector2& dir)
 {
 	// Increase the timer!
@@ -29,7 +34,7 @@ void MachineGun::Shoot(const Vector2& origin, const Vector2& dir)
 			Debug::OutputLine("MachineGun!!!");
 
 			// Spawn the bullet
-			GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 700.0f);
+			GameObjectFactory::Instance()->InstantiateBullet(origin, dir, 650.0f);
 
 			// Reset the timer
 			timeForNextShot = 0.0f;
