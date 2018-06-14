@@ -8,6 +8,8 @@ class GameObjectHandle
 {
 public:
 
+	GameObjectHandle();
+
 	GameObjectHandle(std::size_t pHash);
 
 	bool IsValid();

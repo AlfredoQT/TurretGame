@@ -23,7 +23,7 @@ void COGEnemySpawner::Initialize()
 void COGEnemySpawner::SpawnEnemies()
 {
 	// Check if the target is valid
-	if (mTarget == nullptr)
+	if (!mTarget.IsValid())
 	{
 		return;
 	}
@@ -37,8 +37,17 @@ void COGEnemySpawner::SpawnEnemies()
 		// Random initial position
 		Vector2 origin = Vector2(750.0f, Random::Instance()->NextFloat(50.0f, 550.0f));
 
-		// Calculate the direction
-		Vector2 dir = (mTarget->GetPosition() - origin).Normalized();
+		// Store the direction
+		Vector2 dir;
+
+		// Try to get the transform from the handle
+		COGTransform* targetTransform = mTarget.Get()->FindComponent<COGTransform>();
+
+		if (targetTransform != nullptr)
+		{
+			// Calculate the direction
+			dir = (targetTransform->GetPosition() - origin).Normalized();
+		}
 
 		// Spawn the bullet with a random velocity
 		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, Random::Instance()->NextFloat(400.0f, 500.0f), "Enemy", "Player");
@@ -49,7 +58,7 @@ void COGEnemySpawner::SpawnEnemies()
 	}
 }
 
-void COGEnemySpawner::SetTarget(COGTransform* pTarget)
+void COGEnemySpawner::SetTarget(const GameObjectHandle& pTarget)
 {
 	mTarget = pTarget;
 }

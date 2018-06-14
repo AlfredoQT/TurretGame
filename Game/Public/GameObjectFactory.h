@@ -6,8 +6,7 @@
 class World;
 class GameObject;
 struct Vector2;
-class COGTurret;
-class COGTransform;
+class GameObjectHandle;
 
 // A library of methods to create game objects
 class GameObjectFactory : public Singleton<GameObjectFactory>
@@ -25,9 +24,9 @@ public:
 
 	// I guess there's a more elegant way to pass the turret, but since I'm initalizing the game objects in here, this is the best for now
 	// Although I should move the initialize the world
-	GameObject* InstantiateUI(COGTurret* pTurret);
+	GameObject* InstantiateUI(const GameObjectHandle& pTurret);
 
-	GameObject* InstantiateEnemySpawner(COGTransform* pTarget);
+	GameObject* InstantiateEnemySpawner(const GameObjectHandle& pTarget);
 
 private:
 

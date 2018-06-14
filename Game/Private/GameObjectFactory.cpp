@@ -130,7 +130,7 @@ GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, cons
 	return gameObject;
 }
 
-GameObject * GameObjectFactory::InstantiateUI(COGTurret * pTurret)
+GameObject * GameObjectFactory::InstantiateUI(const GameObjectHandle& pTurret)
 {
 	// Do nothing if there's no world set
 	if (mWorld == nullptr)
@@ -152,7 +152,7 @@ GameObject * GameObjectFactory::InstantiateUI(COGTurret * pTurret)
 	return gameObject;
 }
 
-GameObject * GameObjectFactory::InstantiateEnemySpawner(COGTransform * pTarget)
+GameObject * GameObjectFactory::InstantiateEnemySpawner(const GameObjectHandle& pTarget)
 {
 	// Do nothing if there's no world set
 	if (mWorld == nullptr)

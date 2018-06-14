@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "Game\Public\GameObjectHandle.h"
 
 class GameObject;
 class COGTransform;
@@ -17,7 +18,7 @@ public:
 
 	void SpawnEnemies();
 
-	void SetTarget(COGTransform* pTarget);
+	void SetTarget(const GameObjectHandle& pTarget);
 
 private:
 
@@ -28,5 +29,5 @@ private:
 	float mTimeForNextSpawn;
 
 	// The target
-	COGTransform* mTarget;
+	GameObjectHandle mTarget;
 };

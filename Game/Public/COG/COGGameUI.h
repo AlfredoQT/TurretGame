@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Component.h"
+#include "Game\Public\GameObjectHandle.h"
 
 class GameObject;
-class COGTurret;
 
 class COGGameUI : public Component
 {
@@ -17,13 +17,13 @@ public:
 	virtual void Destroy() override;
 
 	// We need to have access to the turret component
-	void SetTurret(COGTurret* pTurret);
+	void SetTurret(const GameObjectHandle& pTurret);
 	
 	// To draw the stuff
 	void ShowUI();
 
 private:
 
-	COGTurret * mTurret;
+	GameObjectHandle mTurret;
 
 };

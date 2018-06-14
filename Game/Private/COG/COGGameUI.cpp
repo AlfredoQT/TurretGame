@@ -25,17 +25,26 @@ void COGGameUI::Destroy()
 {
 }
 
-void COGGameUI::SetTurret(COGTurret* pTurret)
+void COGGameUI::SetTurret(const GameObjectHandle& pTurret)
 {
 	mTurret = pTurret;
 }
 
 void COGGameUI::ShowUI()
 {
-	if (mTurret != nullptr)
+	if (mTurret.IsValid())
 	{
+		// Try to get the turret component
+		COGTurret* turret = mTurret.Get()->FindComponent<COGTurret>();
+
+		// Just return if could not find it
+		if (turret == nullptr)
+		{
+			return;
+		}
+
 		// Get the current weapon
-		IWeapon* currentWeapon = mTurret->GetCurrentWeapon();
+		IWeapon* currentWeapon = turret->GetCurrentWeapon();
 
 		// Color
 		Color white = Color(255, 255, 255);
@@ -53,7 +62,7 @@ void COGGameUI::ShowUI()
 		mGO->GetWorld()->GetEngine()->DrawText("36daythk.ttf", 20, "3. Machine Gun", Vector2(0.0f, 540.0f), white);
 
 		// Health component
-		COGHealth* health = mTurret->GetGO()->FindComponent<COGHealth>();
+		COGHealth* health = mTurret.Get()->FindComponent<COGHealth>();
 
 		if (health != nullptr)
 		{
