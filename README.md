@@ -1,4 +1,3 @@
-# Missile Command
+# Turret Game
 
-Simplified version of Atari's Missile Command, written in C++ following 
-a component based architecture.
+A very simplified version of Let Them Come
