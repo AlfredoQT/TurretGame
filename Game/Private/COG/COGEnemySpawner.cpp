@@ -4,6 +4,7 @@
 #include "Game\Public\GameObjectFactory.h"
 #include "Engine\Public\Core\Time.h"
 #include "Game\Public\COG\COGTransform.h"
+#include "Engine\Public\Core\Types\Color.h"
 
 COGEnemySpawner* COGEnemySpawner::spawnerComponent = nullptr;
 
@@ -49,8 +50,10 @@ void COGEnemySpawner::SpawnEnemies()
 			dir = (targetTransform->GetPosition() - origin).Normalized();
 		}
 
+		Color red = Color(255, 0, 0);
+
 		// Spawn the bullet with a random velocity
-		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, Random::Instance()->NextFloat(400.0f, 500.0f), "Enemy", "Player");
+		GameObjectFactory::Instance()->InstantiateBullet(origin, dir, Random::Instance()->NextFloat(400.0f, 500.0f), "Enemy", "Player", red);
 
 		// Reset the timers
 		mTimeBetweenSpawns = Random::Instance()->NextFloat(0.7f, 1.5f);

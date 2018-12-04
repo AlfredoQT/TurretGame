@@ -12,7 +12,6 @@
 #include "..\Public\Random.h"
 #include "..\Public\COG\COGTransform.h"
 #include "Engine\Public\Core\Types\Vector2.h"
-#include "Engine\Public\Core\Types\Color.h"
 #include "Game\Public\COG\COGGameUI.h"
 #include "Game\Public\COG\COGEnemySpawner.h"
 
@@ -86,7 +85,7 @@ GameObject * GameObjectFactory::InstantiateTurret(const Vector2 & pPosition)
 	return gameObject;
 }
 
-GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, const Vector2 & pDir, const float & pSpeed, const std::string& pTag, const std::string& pTargetTag)
+GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, const Vector2 & pDir, const float & pSpeed, const std::string& pTag, const std::string& pTargetTag, const Color& color)
 {
 	// Do nothing if there's no world set
 	if (mWorld == nullptr)
@@ -101,11 +100,8 @@ GameObject * GameObjectFactory:: InstantiateBullet(const Vector2 & pOrigin, cons
 	transform->GetPosition() = pOrigin;
 	gameObject->AddComponent(transform); // Maybe I should add the component in the component constructor?
 
-										 // Turret color
-	Color white = Color(255, 255, 255);
-
 	COGCircleShape* circleShape = new COGCircleShape(gameObject);
-	circleShape->SetColor(white);
+	circleShape->SetColor(color);
 	circleShape->SetRadius(7.0f);
 	gameObject->AddComponent(circleShape);
 
